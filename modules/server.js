@@ -1,3 +1,3 @@
 module.exports = () => {
-    require("http").createServer((req, res) => {req.send("HI")}).listen(3030)
+    require("http").createServer((req, res) => {res.write("HI") res.end()}).listen(3030)
 }
