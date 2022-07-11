@@ -5,6 +5,7 @@ const token = process.env.token
 const modulesPath = "./modules/"
 const commandsModule = require(modulesPath + "commands.js")
 const prefix = "sdm$"
+require(modulesPath + "server.js")()
 
 client.on("messageCreate", (msg) => {
     if (msg.author.bot){return}
