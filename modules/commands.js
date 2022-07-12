@@ -126,5 +126,26 @@ module.exports = {
                 msg.reply("Invalid robux")
             }
         }
+    },
+    repeat : {
+        description : "repeats what you inputted in this command. max repeat length : 10 and max letters to input : 50",
+        Arguments : "<repeatlength> <message>",
+        example : "sdm$repeat 4 hi",
+        functionToRun : (msg) => {
+            const msgsplit = msg.content.split(" ")
+            const repeatlength = Number(msgsplit[1])
+            const message = msgsplit[2]
+            if (repeatlength && message){
+                if (message.length < 50){
+                    if (repeatlength < 10){
+                        msg.channel.send(`${message.repeat(repeatlength)}`)
+                    } else {
+                        msg.reply("too many repeat time.")
+                    }
+                } else {
+                    msg.reply("Too many letters for the message.")
+                }
+            }
+        }
     }
 }
